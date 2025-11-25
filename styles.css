@@ -1,0 +1,315 @@
+/* be-vietnam-pro-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Be Vietnam Pro";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/be-vietnam-pro-v12-latin-regular.woff2")
+    format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+:root {
+  /* Colors */
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(0, 0, 0);
+
+  --color-gray-950: rgb(29, 30, 37);
+  --color-gray-900: rgb(52, 58, 64);
+  --color-gray-400: rgb(141, 141, 141);
+  --color-gray-50: rgb(250, 250, 250);
+
+  --color-orange-400: rgb(243, 96, 60);
+  --color-orange-350: rgb(249, 143, 117);
+  --color-orange-50: rgb(255, 240, 236);
+
+  --color-blue-950: rgb(36, 45, 82);
+  --color-blue-50: rgb(229, 233, 234);
+
+  --color-red-500: rgb(243, 60, 60);
+
+  /* Gradients */
+  --gradient-1: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+
+  /* Typography */
+  --ff-primary: "Be Vietnam Pro", sans-serif;
+
+  /* Font Weights */
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Font Styles */
+  --fstyle-italic: italic;
+
+  /* Font Sizes */
+  --fs-1: 56px;
+  --fs-2: 40px;
+  --fs-3: 32px;
+  --fs-4: 16px;
+  --fs-5: 13px;
+  --fs-6: 10px;
+
+  /* Line Heights */
+  --lh-1: 110%;
+  --lh-2: 115%;
+  --lh-3: 140%;
+  --lh-4: 145%;
+  --lh-5: 150%;
+  --lh-6: 162.5%;
+  --lh-7: 200%;
+
+  /* Letter Spacing */
+  --ls-1: -1px;
+  --ls-2: -0.75px;
+  --ls-3: 0px;
+
+  /* Spacing (rem) */
+  --space-0: 0rem; /* 0px */
+  --space-100: 0.5rem; /* 8px */
+  --space-200: 1rem; /* 16px */
+  --space-300: 1.5rem; /* 24px */
+  --space-400: 2rem; /* 32px */
+  --space-500: 2.5rem; /* 40px */
+  --space-600: 3rem; /* 48px */
+  --space-700: 3.5rem; /* 56px */
+  --space-800: 4rem; /* 64px */
+}
+
+.text-preset-1 {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-1);
+  line-height: var(--lh-2);
+  letter-spacing: var(--ls-1);
+}
+
+.text-preset-2 {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-2);
+  line-height: var(--lh-1);
+  letter-spacing: var(--ls-2);
+}
+
+.text-preset-3 {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-3);
+  line-height: var(--lh-3);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-4-bold {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-4);
+  line-height: var(--lh-4);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-4-regular {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-4);
+  line-height: var(--lh-6);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-5-bold {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-5);
+  line-height: var(--lh-4);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-5-medium {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-5);
+  line-height: var(--lh-4);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-5-regular {
+  font-family: var(--ff-primary);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-5);
+  line-height: var(--lh-7);
+  letter-spacing: var(--ls-3);
+}
+
+.text-preset-6 {
+  font-family: var(--ff-primary);
+  font-style: var(--fstyle-italic);
+  font-size: var(--fs-6);
+  line-height: var(--lh-5);
+  letter-spacing: var(--ls-3);
+}
+
+/* || RESET */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border-color: transparent;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style-type: none;
+}
+
+body {
+  background-color: white;
+}
+
+.header {
+  max-width: 1110px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2.5rem 0 0;
+}
+
+main > * {
+  margin-top: var(--space-800) !important;
+}
+
+
+.logo {
+  width: 145px;
+  height: 23px;
+  margin: auto 0;
+}
+
+.nav > a {
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.get-started {
+  padding: var(--space-200) var(--space-400);
+  width: 137px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  background-color: var(--color-orange-400);
+  color: white;
+  border-radius: 22px;
+  cursor: pointer;
+}
+
+.get-started--white {
+  background-color: white;
+  color: var(--color-orange-400);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+  width: 445px;
+  height: 388px;
+
+  gap: var(--space-500);
+}
+
+.hero-text {
+  margin-top: var(--space-200);
+}
+
+.text--opacity-low {
+  opacity: 50.25%;
+}
+
+.hero-right img {
+  width: 540px;
+  height: 485px;
+}
+
+.features {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1110px;
+  margin: 0 auto;
+}
+
+.features_text {
+  flex-basis: 45%;
+  max-width: 445px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-300);
+}
+
+.features_list {
+  flex-basis: 55%;                /* Assign a flexible width */
+  max-width: 540px;               /* Set a max-width */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-500);
+}
+
+.list-item_number {
+  width: 67px;
+  height: 39px;
+  border-radius: 19.5px;
+  background-color: var(--color-orange-400);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.list-item_header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-300);
+  margin-bottom: var(--space-100);
+}
