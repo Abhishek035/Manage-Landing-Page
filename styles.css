@@ -205,7 +205,6 @@ main > * {
   margin-top: var(--space-800) !important;
 }
 
-
 .logo {
   width: 145px;
   height: 23px;
@@ -271,6 +270,37 @@ main > * {
   height: 485px;
 }
 
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column-reverse;
+    align-items: center;
+    width: auto;
+    gap: var(--space-600);
+    padding: 0 var(--space-300); /* Add padding so it doesn't touch edges */
+  }
+
+  .hero-left {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    gap: var(--space-300);
+  }
+
+  .hero-text,
+  .text-container > h1 {
+    max-width: 520px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 428px) {
+  .hero-right img {
+    width: auto;
+    height: auto;
+  }
+}
+
 .features {
   display: flex;
   justify-content: space-between;
@@ -288,8 +318,8 @@ main > * {
 }
 
 .features_list {
-  flex-basis: 55%;                /* Assign a flexible width */
-  max-width: 540px;               /* Set a max-width */
+  flex-basis: 55%; /* Assign a flexible width */
+  max-width: 540px; /* Set a max-width */
   display: flex;
   flex-direction: column;
   gap: var(--space-500);
@@ -312,4 +342,36 @@ main > * {
   align-items: center;
   gap: var(--space-300);
   margin-bottom: var(--space-100);
+  background-color: var(--color-orange-50);
+}
+
+@media (max-width: 1024px) {
+  .features {
+    flex-direction: column;
+    gap: var(--space-400);
+  }
+
+  .features_list,
+  .features_text {
+    max-width: 100%;
+  }
+
+  .features_text {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 var(--space-100);
+  }
+
+  .features_text > h1 {
+    margin: 0 auto;
+    max-width: 500px;
+  }
+
+  .features_text > p {
+    max-width: 600px;
+  }
+
+  .features_list {
+    margin-left: var(--space-400);
+  }
 }
