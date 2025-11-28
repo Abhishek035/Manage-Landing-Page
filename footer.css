@@ -42,6 +42,7 @@ footer {
     justify-content: space-between;
     width: 70%;
     max-width: 1110px;
+    gap: var(--space-500);
   }
 }
 
@@ -53,25 +54,34 @@ footer {
   & .icons {
     display: flex;
     gap: 16px;
+    
+    & img {
+      flex: 1;
+      max-width: 32px;
+    }
   }
 
   & > img {
     filter: brightness(0) invert(1);
+    width: 146px;
+    height: 24px;
+    margin-inline: auto;
   }
 }
 
 .footer_container .link_container {
   display: flex;
   justify-content: space-between;
-  width: 830px;
-  gap: 16px;
+  width: 75%;
+  gap: var(--space-200);
   color: white;
 
   & .links {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, min-content);
+    grid-auto-flow: column;
+    gap: var(--space-100);
     width: 100%;
   }
 }
@@ -83,14 +93,14 @@ footer {
 
   & .input_container {
     display: flex;
-    gap: 8px;
+    gap: var(--space-100);
 
     & input {
       padding: 8px 16px;
       border-radius: 22px;
       border: 1px solid var(--color-gray-400);
       background-color: white;
-      height: 44px;
+      flex: 1;
     }
 
     & button {
@@ -102,14 +112,76 @@ footer {
     }
   }
 
-  & copyright {
+  .copyright {
     opacity: 50.25%;
     text-align: end;
   }
 }
 
+.logo_container .copyright {
+  display: none;
+}
+
 @media (max-width: 1024px) {
+  .footer_container .link_container .links {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+
   footer .footer_container {
-    /* flex-direction: column-reverse; */
+    flex-direction: column-reverse;
+    width: 60%;
+    gap: var(--space-800);
+  }
+
+  .footer_container .link_container {
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: var(--space-800);
+  }
+
+  .logo_container {
+    flex-direction: column-reverse;
+    width: 60%;
+    margin-inline: auto;
+    gap: var(--space-800);
+  }
+
+  .newsletter_container .copyright {
+    display: none;
+  }
+
+  .logo_container .copyright {
+    display: block;
+    text-align: center;
+    opacity: 50.25%;
+    color: white;
+  }
+
+  .logo_container .icons {
+    gap: var(--space-400);
+  }
+}
+
+@media (max-width: 600px) {
+  .footer_container .link_container .links {
+    grid-template-columns: repeat(2, max-content);
+    justify-content: space-between;
+    grid-template-rows: repeat(4, min-content);
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  footer .footer_container {
+    width: 90%;
+    gap: var(--space-600);
+  }
+
+  .footer_container .link_container {
+    gap: var(--space-600);
+  }
+  
+  .logo_container {
+    width: 90%;
   }
 }

@@ -181,6 +181,8 @@ select {
 a {
   text-decoration: none;
   color: inherit;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 ul,
