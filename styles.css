@@ -29,7 +29,6 @@
 
   /* Gradients */
   --gradient-1: linear-gradient(
-    to right,
     rgba(0, 0, 0, 0) 0%,
     rgba(0, 0, 0, 0.6) 100%
   );
@@ -151,6 +150,10 @@
   letter-spacing: var(--ls-3);
 }
 
+.font-blue {
+  color: var(--color-blue-950);
+}
+
 /* || RESET */
 *,
 *::after,
@@ -195,12 +198,15 @@ body {
 }
 
 .header {
-  max-width: 1110px;
   display: flex;
   justify-content: space-between;
-  margin-left: auto;
-  margin-right: auto;
   padding: 2.5rem 0 0;
+}
+
+.wrapper {
+  max-width: 1110px;
+  width: min(1110px, 90%);
+  margin-inline: auto;
 }
 
 main > * {
@@ -221,6 +227,72 @@ main > * {
   display: flex;
   gap: 2rem;
   align-items: center;
+}
+
+.mobile-toggle {
+  display: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0.5rem;
+}
+
+.icon-close {
+  display: none;
+}
+
+.overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 80px; /* Starts below header */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-1);
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  header .get-started {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: block; /* Show hamburger */
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 6rem; /* Push it down below logo */
+    width: 90%; /* Match header width */
+
+    background-color: var(--color-white);
+    padding: var(--space-600);
+    border-radius: 4px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); 
+
+    flex-direction: column; /* Stack links vertically */
+    align-items: center;
+    gap: var(--space-400);
+    z-index: 20; /* Sit on top of overlay */
+  }
+
+  .nav[data-visible="true"] {
+    display: flex;
+  }
+
+  .overlay[data-visible="true"] {
+    display: block;
+  }
+
+  /* Swap Icons when open */
+  .mobile-toggle[aria-expanded="true"] .icon-hamburger {
+    display: none;
+  }
+
+  .mobile-toggle[aria-expanded="true"] .icon-close {
+    display: block;
+  }
 }
 
 .get-started {
@@ -296,7 +368,7 @@ main > * {
   }
 }
 
-@media (max-width: 428px) {
+@media (max-width: 768px) {
   .hero-right img {
     width: auto;
     height: auto;
@@ -372,8 +444,5 @@ main > * {
   .features_text > p {
     max-width: 600px;
   }
-
-  .features_list {
-    margin-left: var(--space-400);
-  }
 }
+

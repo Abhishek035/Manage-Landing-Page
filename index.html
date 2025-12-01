@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- displays site properly based on user's device -->
 
-    <link
+    <!-- <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="./images/favicon-32x32.png"
-    />
+    /> -->
 
     <link
       rel="preload"
@@ -20,17 +20,37 @@
       crossorigin="anonymous"
     />
 
-    <title>Frontend Mentor | Manage landing page</title>
+    <title>Manage landing page</title>
 
     <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="testimonials.css" />
     <link rel="stylesheet" href="footer.css" />
+
+    <script src="index.js" defer></script>
   </head>
   <body>
-    <!-- <header class="header">
+    <header class="header wrapper">
       <img src="images/logo.svg" alt="Manage logo" class="logo" />
-      <nav class="nav text-preset-5-medium">
+      <button
+        class="mobile-toggle"
+        aria-controls="primary-navigation"
+        aria-expanded="false"
+      >
+        <img
+          class="icon-hamburger"
+          src="images/icon-hamburger.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="icon-close"
+          src="images/icon-close.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
+      <nav class="nav text-preset-5-medium font-blue">
         <a href="#">Pricing</a>
         <a href="#">Product</a>
         <a href="#">About Us</a>
@@ -38,12 +58,13 @@
         <a href="#">Community</a>
       </nav>
       <button class="get-started text-preset-5-bold">Get Started</button>
-    </header> -->
+    </header>
+    <div class="overlay"></div>
     <main>
-      <!-- <section class="hero">
+      <section class="hero wrapper">
         <div class="hero-left">
           <div class="text-container">
-            <h1 class="text-preset-2"> 
+            <h1 class="text-preset-1" id="hero-title"> 
               Bring everyone together to build better products.
             </h1>
             <p
@@ -64,9 +85,9 @@
             height="485"
           />
         </div>
-      </section> -->
+      </section>
 
-      <!-- <section class="features">
+      <section class="features wrapper">
         <div class="features_text">
           <h1 class="text-preset-2">What’s different about Manage?</h1>
           <p class="text-preset-4-regular text--opacity-low">
@@ -116,7 +137,7 @@
             </p>
           </li>
         </ul>
-      </section> -->
+      </section>
       <!-- <section class="testimonials">
         <div class="testimonials_container">
           <h2 class="text-preset-2">What they’ve said</h2>
@@ -173,12 +194,12 @@
         </div>
         <button class="get-started text-preset-5-bold">Get Started</button>
       </section> -->
-      <!-- <section class="footer_bottom">
+      <section class="footer_bottom">
         <div class="text-container">
           <h2 class="text-preset-2">Simplify how your team works today.</h2>
           <button class="get-started get-started--white text-preset-5-bold">Get Started</button>
         </div>
-      </section> -->
+      </section>
     </main>
     <footer>
       <div class="footer_container">
