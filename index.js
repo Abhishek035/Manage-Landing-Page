@@ -46,3 +46,100 @@ function handleScreenChange(e) {
 handleScreenChange(mediaQuery);
 
 mediaQuery.addEventListener('change', handleScreenChange);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const track = document.querySelector('.testimonials_list');
+  const slides = Array.from(track.children);
+  const navContainer = document.querySelector('.carousel-nav');
+  
+  // Configuration
+  const autoPlayDelay = 8000; // 8 seconds
+  let slideIndex = 0;
+  let autoPlayInterval;
+
+  // Function to determine how many slides are visible at once
+  const getSlidesPerView = () => {
+    return window.innerWidth >= 1024 ? 2 : 1;
+  };
+
+  // Function to update the UI (Slide position and active dot)
+  const updateCarousel = () => {
+    const slidesPerView = getSlidesPerView();
+    const slideWidth = 100 / slidesPerView;
+    
+    // Move the track
+    track.style.transform = `translateX(-${slideIndex * slideWidth}%)`;
+
+    // Update Dots
+    const dots = Array.from(navContainer.children);
+    dots.forEach((dot, index) => {
+      if (index === slideIndex) {
+        dot.classList.add('current-slide');
+      } else {
+        dot.classList.remove('current-slide');
+      }
+    });
+  };
+
+  // Setup Dots based on total slides and view mode
+  const setupDots = () => {
+    navContainer.innerHTML = '';
+    const slidesPerView = getSlidesPerView();
+    // Calculate how many 'stops' the slider has. 
+    // Example: 3 items, showing 2 at a time -> We need index 0 and 1. (Index 2 would show whitespace)
+    const totalStops = slides.length - slidesPerView + 1;
+
+    for (let i = 0; i < totalStops; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('carousel-indicator');
+      if (i === slideIndex) dot.classList.add('current-slide');
+      
+      dot.addEventListener('click', () => {
+        slideIndex = i;
+        updateCarousel();
+        resetTimer(); // Reset timer on manual interaction
+      });
+      
+      navContainer.appendChild(dot);
+    }
+  };
+
+  // Logic to go to next slide
+  const moveToNextSlide = () => {
+    const slidesPerView = getSlidesPerView();
+    const totalStops = slides.length - slidesPerView + 1;
+    
+    slideIndex++;
+    
+    // Circular logic: If we reach the end, go back to 0
+    if (slideIndex >= totalStops) {
+      slideIndex = 0;
+    }
+    
+    updateCarousel();
+  };
+
+  // Timer Management
+  const startTimer = () => {
+    autoPlayInterval = setInterval(moveToNextSlide, autoPlayDelay);
+  };
+
+  const resetTimer = () => {
+    clearInterval(autoPlayInterval);
+    startTimer();
+  };
+
+  // Handle Window Resize (Switching between 1 card and 2 cards view)
+  window.addEventListener('resize', () => {
+    // Reset to start to avoid index bounds errors during resize
+    slideIndex = 0; 
+    setupDots();
+    updateCarousel();
+    resetTimer();
+  });
+
+  // Initialization
+  setupDots();
+  startTimer();
+});

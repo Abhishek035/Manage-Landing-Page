@@ -1,42 +1,110 @@
+/* --- Base Styles provided in context --- */
 .testimonials {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-600);
-} 
+  gap: var(--space-600, 60px); /* Added fallback if var missing */
+  overflow: hidden; /* Prevent horizontal scrollbar on body */
+}
 
 .testimonials_container {
   display: flex;
   flex-direction: column;
-  gap: var(--space-800);
+  gap: var(--space-800, 80px);
   align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Constrain max width for desktop */
+}
+
+/* --- Carousel Specific Styles --- */
+.slider-wrapper {
+  width: 100%;
+  overflow: hidden; /* Hides the cards currently off-screen */
+  padding: 20px 0; /* Space for shadow/overflow if needed */
 }
 
 .testimonials_list {
   display: flex;
-  gap: var(--space-300);
+  /* Removed gap here, handled by padding in items for smooth sliding */
+  gap: 0; 
+  padding: 0;
+  margin: 0;
+  transition: transform 0.5s ease-in-out; /* Smooth slide animation */
+  width: 100%;
 }
 
 .testimonials_list > .list-item {
   display: flex;
   flex-direction: column;
-  padding: 0 var(--space-500);
-  gap: var(--space-300);
+  /* Use padding to create the gap between cards */
+  padding: 0 15px; 
   align-items: center;
-  background: linear-gradient(
-    to bottom,                     /* The direction of the gradient */
-    white 36px,                    /* Color 1: white, from the top (0) down to 36px */
-    var(--color-gray-50) 36px      /* Color 2: gray, starting at 36px to the bottom */
-  );
-  width: 560px;
-  height: 256px; 
+  box-sizing: border-box;
+  flex-shrink: 0; /* Prevent squishing */
 }
 
+/* Internal Card Styling */
 .testimonials_list > .list-item > div {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: var(--space-200);
+  gap: var(--space-200, 24px);
+  
+  /* CHANGED: Replaced linear-gradient with a solid background color */
+  background-color: var(--color-gray-50); 
+  
+  padding: 0 var(--space-500, 32px);
+  /* Added bottom padding to balance the card */
+  padding-bottom: 32px; 
+  /* Maintained top padding to ensure text doesn't overlap the avatar */
+  padding-top: 60px; 
+  
+  height: auto; /* Changed to auto so content fits naturally, or keep fixed if strictly required */
+  min-height: 220px; /* Optional: ensures cards are roughly the same size */
+  width: 100%;
+  position: relative;
+  border-radius: 5px; /* Optional: Adds slight rounding usually found in this design */
+}
+
+/* Fix image position to overlap top of card */
+.testimonials_list > .list-item img {
+  margin-bottom: -36px;
+  z-index: 10;
+}
+
+/* --- Responsive Width Logic --- */
+
+/* Mobile & Tablet: 1 Card (100% width) */
+.list-item {
+  flex-basis: 100%;
+}
+
+/* Desktop: 2 Cards (50% width) */
+@media (min-width: 1024px) {
+  .list-item {
+    flex-basis: 50%;
+  }
+}
+
+/* --- Dots Navigation --- */
+.carousel-nav {
+  display: flex;
+  gap: 8px;
+  margin-top: -20px; /* Adjust spacing as needed */
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid #F3603C; /* Using the orange from the button */
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-indicator.current-slide {
+  background: #F3603C;
 }
