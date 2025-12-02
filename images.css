@@ -1,0 +1,17 @@
+.bg-pattern {
+  /* Rotate around its own center */
+  transform: rotate(0deg);
+
+  /* If rotation moves it too far, adjust the origin */
+  transform-origin: center;
+  z-index: -1;
+
+  /* 👇 Safety check: ensures clicks pass through to the content behind it */
+  pointer-events: none; 
+}
+
+.image-1 {
+  position: absolute;
+  top: -150px;
+  right: -100px;
+}
