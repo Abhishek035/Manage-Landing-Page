@@ -1,4 +1,7 @@
 .footer_bottom {
+  position: relative; /* Using this only for background image */
+  overflow: hidden;
+
   background-color: var(--color-orange-400);
   display: flex;
   justify-content: center;

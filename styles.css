@@ -28,10 +28,7 @@
   --color-red-500: rgb(243, 60, 60);
 
   /* Gradients */
-  --gradient-1: linear-gradient(
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+  --gradient-1: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
 
   /* Typography */
   --ff-primary: "Be Vietnam Pro", sans-serif;
@@ -195,7 +192,12 @@ ol {
 
 body {
   background-color: white;
+}
+
+html,
+body {
   overflow-x: hidden;
+  width: 100%;
 }
 
 .header {
@@ -270,7 +272,7 @@ main > * {
     background-color: var(--color-white);
     padding: var(--space-600);
     border-radius: 4px;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 
     flex-direction: column; /* Stack links vertically */
     align-items: center;
@@ -340,7 +342,11 @@ main > * {
   opacity: 50.25%;
 }
 
-.hero-right img {
+.hero-right {
+  position: relative;
+}
+
+.hero-right > .illustration-image {
   width: 540px;
   height: 485px;
 }
@@ -370,7 +376,7 @@ main > * {
 }
 
 @media (max-width: 768px) {
-  .hero-right img {
+  .hero-right > .illustration-image {
     width: auto;
     height: auto;
   }
@@ -446,4 +452,3 @@ main > * {
     max-width: 600px;
   }
 }
-
