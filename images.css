@@ -1,7 +1,7 @@
 .bg-pattern {
   /* If rotation moves it too far, adjust the origin */
   transform-origin: center;
-  
+
   /* 👇 Safety check: ensures clicks pass through to the content behind it */
   pointer-events: none;
   max-width: unset;
@@ -19,6 +19,13 @@
   opacity: 100%;
 }
 
+.image-3 {
+  position: absolute;
+  z-index: -1;
+  top: 105%;
+  left: -164%;
+}
+
 @media (max-width: 728px) {
   .image-1 {
     height: 500px;
@@ -26,6 +33,17 @@
   }
 
   .image-2 {
-    left: 0%;
+    left: -72%;
+  }
+}
+
+@media (max-width: 1023px) {
+  .image-3 {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    z-index: -1;
+    top: -170%;
+    left: 89%;
   }
 }

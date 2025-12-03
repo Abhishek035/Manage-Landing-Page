@@ -178,6 +178,10 @@ select {
   border-color: transparent;
 }
 
+input {
+  color: var(--color-red-500);
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -226,6 +230,10 @@ main > * {
   text-decoration: none;
 }
 
+.nav > a:hover {
+  opacity: 0.5;
+}
+
 .nav {
   display: flex;
   gap: 2rem;
@@ -254,7 +262,7 @@ main > * {
   z-index: 10;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   header .get-started {
     display: none;
   }
@@ -310,11 +318,26 @@ main > * {
   color: white;
   border-radius: 22px;
   cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+
+.get-started:hover {
+  cursor: pointer;
+  background-color: var(--color-orange-350);
 }
 
 .get-started--white {
   background-color: white;
   color: var(--color-orange-400);
+}
+
+.get-started--white:hover {
+  background-color: white;
+}
+
+.get-started--white:hover > span {
+  cursor: pointer;
+  opacity: 50%;
 }
 
 .hero {
@@ -351,7 +374,7 @@ main > * {
   height: 485px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .hero {
     flex-direction: column-reverse;
     align-items: center;
@@ -391,6 +414,8 @@ main > * {
 }
 
 .features_text {
+  position: relative;
+
   flex-basis: 45%;
   max-width: 445px;
   display: flex;
@@ -426,7 +451,7 @@ main > * {
   background-color: var(--color-orange-50);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .features {
     flex-direction: column;
     gap: var(--space-400);

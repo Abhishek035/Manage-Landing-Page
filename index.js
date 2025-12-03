@@ -30,7 +30,7 @@ navToggle.addEventListener('click', () => {
 });
 
 const heading = document.getElementById("hero-title");
-const mediaQuery = window.matchMedia('(max-width: 1024px)');
+const mediaQuery = window.matchMedia('(max-width: 1023px)');
 
 function handleScreenChange(e) {
   if (e.matches) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to determine how many slides are visible at once
   const getSlidesPerView = () => {
-    return window.innerWidth >= 1024 ? 2 : 1;
+    return window.innerWidth >= 1023 ? 2 : 1;
   };
 
   // Function to update the UI (Slide position and active dot)

@@ -5,6 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-600, 60px); /* Added fallback if var missing */
+  padding-bottom: var(--space-500);
   overflow: hidden; /* Prevent horizontal scrollbar on body */
 }
 
@@ -82,7 +83,7 @@
 }
 
 /* Desktop: 2 Cards (50% width) */
-@media (min-width: 1024px) {
+@media (min-width: 1023px) {
   .list-item {
     flex-basis: 50%;
   }
